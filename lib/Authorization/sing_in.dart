@@ -1,9 +1,11 @@
+import 'package:apptodo/Authorization/autorization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Colors/colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../Providers/email_provider_validation.dart';
+import '../Providers/password_provider_validation.dart';
 
 class loginPage extends ConsumerWidget {
   const loginPage({Key? key}) : super(key: key);
@@ -17,15 +19,19 @@ class loginPage extends ConsumerWidget {
     void emailValidate(WidgetRef ref, email){
       ref.read( EmailManagerProvider.notifier).emailValidate(email);
   };
+    void passwordValidate(WidgetRef ref, password){
+      ref.read( PassworManagerProvider.notifier).passwordValidate(password);
+    };
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(255, 214, 10, 1),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           color: Colors.black,
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/page 1');
-          },
+          onPressed: '${ref.watch(PassworManagerProvider)}' == 'correct' && '${ref.watch(EmailManagerProvider)}' == 'correct' ? (){Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => autorization()));} : null,
         ),
         title: const Text('Sing In', style: TextStyle(color: Colors.black),),
         centerTitle: true,
@@ -42,6 +48,7 @@ class loginPage extends ConsumerWidget {
       return Container(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 0, bottom: 0),
         child: TextField(
+
             controller: controller,
             cursorColor: ColorsSet.white,
             obscureText: obscure,
@@ -51,6 +58,12 @@ class loginPage extends ConsumerWidget {
               enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: ColorsSet.gray),
                 borderRadius: BorderRadius.circular(13),
+
+              ),
+              border: InputBorder.none,
+              errorText: '(${ref.PassworManagerProvider})',
+              errorStyle: TextStyle(
+                color: '${ref.watch(PassworManagerProvider)}' != 'OK' ? Colors.red : Colors.green,
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: ColorsSet.gray),
@@ -90,6 +103,7 @@ class loginPage extends ConsumerWidget {
               ),
               ),
             ),
+
             Padding(
               padding: EdgeInsets.only(top: 5),
               child: _input(_emailController, false),

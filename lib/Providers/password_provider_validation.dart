@@ -7,7 +7,7 @@ class PasswordManager extends StateNotifier<String?> {
   PasswordManager() : super('');
 
 
-  void validatePassword(String? password) {
+  void passwordValidate(String? password) {
     if (password != null) {
       if (password.length > 15) {
         state = 'Long password';
