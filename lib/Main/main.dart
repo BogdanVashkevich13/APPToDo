@@ -3,6 +3,7 @@ import 'package:apptodo/Authorization/sing_in.dart';
 import 'package:apptodo/Authorization/singup.dart';
 import 'package:flutter/material.dart';
 
+import '../Authorization/sing_in_page.dart';
 import '../Authorization/singin.dart';
 import '../InternalArchitecture/FirstPageIN.dart';
 void main() => runApp(const MaterialApp(
@@ -23,9 +24,9 @@ class  UserPanel extends StatelessWidget {
      initialRoute: '/page 1',
      routes: {
        '/page 1': (context) => autorization(),
-       '/page 2': (context) => loginPage(),
+       '/page 2': (context) => singInPage(),
        '/page 3': (context) => RegistrationPage(),
-       '/page 4': (context) => FirstPageIn(),
+       '/page 4': (context) => const FirstPageIn(),
      },
    );
 }

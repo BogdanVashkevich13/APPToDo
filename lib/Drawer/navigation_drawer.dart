@@ -10,12 +10,12 @@ Widget buildMenuItem({
 }) {
   final color = ColorsSet.white;
   final hoverColor = ColorsSet.white;
-  // final Images = Image.asset('images/Folder.png');
-  // final Images2 = Image.asset('images/Watch.png');
-  // final Images3 = Image.asset('images/Settings.png');
+   final Images = Image.asset('images/Folder.png');
+  final Images2 = Image.asset('images/Watch.png');
+  final Images3 = Image.asset('images/Settings.png');
   return ListTile(
      leading: image,
-    title: Text(text, style: TextStyle(color: ColorsSet.white),
+    title: Text(text, style: TextStyle(color: ColorsSet.black),
     ),
     hoverColor: hoverColor,
     onTap: () {},
@@ -32,26 +32,38 @@ class NavigationDrawerWiget extends StatelessWidget {
         color: ColorsSet.yellow,
         child: ListView(
           padding: padding,
-          children: <Widget>[
+           children: <Widget>[
             const SizedBox(height: 48),
-            buildMenuItem(
-              text: 'Productivity',
-              image: Image.asset('images/Folder.png'),
-            ),
-            const SizedBox(height: 10),
-            buildMenuItem(
-              text: 'Project',
-              image: Image.asset('images/Watch.png'),
-            ),
-            const SizedBox(height:10),
-            buildMenuItem(
-              text: 'Settings',
-              image: Image.asset('images/Settings.png'),
-            ),
-          ],
+             buildMenuItem(
+                text: 'Productivity',
+               image: Image.asset('images/Folder.png'),),
+                const SizedBox(height: 10),
+                buildMenuItem(
+                text: 'Project',
+                image: Image.asset('images/Watch.png'),),
+                 const SizedBox(height:10),
+                 buildMenuItem(
+                  text: 'Settings',
+                  image: Image.asset('images/Settings.png'),
+              ),
+             ],
         ),
       ),
     );
   }
 }
 
+
+// children: const [
+// UserAccountsDrawerHeader(
+// accountName: Text('Alex Mitchel')
+// , accountEmail: null,
+// currentAccountPicture: CircleAvatar(
+// backgroundImage: AssetImage('images/Photo.png'),
+// ),
+// ),
+// ListTile(
+// title: Text(''),
+// trailing: AssetImage('images/Photo.png'),
+// ),
+// ],
