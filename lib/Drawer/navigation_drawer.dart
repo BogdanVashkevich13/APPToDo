@@ -13,6 +13,7 @@ Widget buildMenuItem({
    final Images = Image.asset('images/Folder.png');
   final Images2 = Image.asset('images/Watch.png');
   final Images3 = Image.asset('images/Settings.png');
+  final Images4 = Image.asset('images/A.png');
   return ListTile(
      leading: image,
     title: Text(text, style: TextStyle(color: ColorsSet.black),
@@ -25,30 +26,45 @@ Widget buildMenuItem({
 class NavigationDrawerWiget extends StatelessWidget {
   final padding = EdgeInsets.only(left: 30);
 
+  NavigationDrawerWiget({super.key});
+
+Widget buildHeader(BuildContext context) => Container(
+  padding: EdgeInsets.only(
+    top: MediaQuery.of(context).padding.top
+  ),
+  child: Column(
+    children: const [
+      CircleAvatar(
+        radius: 40,
+        backgroundColor: ColorsSet.black,
+        ) ,
+    ],
+  ),
+);
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Material(
-        color: ColorsSet.yellow,
-        child: ListView(
-          padding: padding,
-           children: <Widget>[
-            const SizedBox(height: 48),
-             buildMenuItem(
-                text: 'Productivity',
-               image: Image.asset('images/Folder.png'),),
-                const SizedBox(height: 10),
-                buildMenuItem(
-                text: 'Project',
-                image: Image.asset('images/Watch.png'),),
-                 const SizedBox(height:10),
-                 buildMenuItem(
-                  text: 'Settings',
-                  image: Image.asset('images/Settings.png'),
-              ),
-             ],
-        ),
+      color: ColorsSet.yellow,
+      child: ListView(
+        padding: padding,
+         children: <Widget>[
+          const SizedBox(height: 48),
+           buildMenuItem(
+              text: 'Productivity',
+             image: Image.asset('images/Folder.png'),),
+              const SizedBox(height: 10),
+              buildMenuItem(
+              text: 'Project',
+              image: Image.asset('images/Watch.png'),),
+               const SizedBox(height:10),
+               buildMenuItem(
+                text: 'Settings',
+                image: Image.asset('images/Settings.png'),
+            ),
+           ],
       ),
+    ),
     );
   }
 }
