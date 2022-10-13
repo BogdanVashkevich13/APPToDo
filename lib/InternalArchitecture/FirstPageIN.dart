@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../Authorization/autorization.dart';
 import '../Drawer/navigation_drawer.dart';
 
 class FirstPageIn extends ConsumerWidget {
@@ -13,91 +12,15 @@ class FirstPageIn extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      drawer: Center(
-        child: Container(
-          color: ColorsSet.yellow,
-          margin: EdgeInsets.only(right: 90) ,
-          child: Padding(
-            padding: EdgeInsets.only(left: 5),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: ColorsSet.black,
-                    shape: BoxShape.circle,
-                  ),
-                  margin: EdgeInsets.only(top: 100),
-                  child: Center(
-                    child: Text(
-                        'A',
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: ColorsSet.white,
-                      ),
-                    ),
-                  ),
-                ),
-                 SizedBox(height: 12),
-                  Container(
-                   child: Center(
-                    child:  Text('Alex Mitchell',
-                      style: TextStyle(
-                        color: ColorsSet.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                      ),
-                    ),
-                   ),
-                  ),
-                SizedBox( height: 70,),
-                Container(
-                  padding: EdgeInsets.only(left: 14),
-                  child: ListTile(
-                  leading: Image.asset('images/Watch.png'),
-                  title: Text('Productiviti'),
-                  onTap: () {},
-                ),
-                ),
-                SizedBox( height: 10,),
-                Container(
-                  padding: EdgeInsets.only(left: 14),
-                  child: ListTile(
-                    leading: Image.asset('images/Folder.png'),
-                    title: Text('Projects'),
-                    onTap: () {},
-                  ),
-                ),
-                SizedBox( height: 10,),
-                Container(
-                  padding: EdgeInsets.only(left: 14),
-                  child: ListTile(
-                    leading: Image.asset('images/Settings.png'),
-                    title: Text('Settings'),
-                    onTap: () {},
-                  ),
-                ),
-                SizedBox(height: 220,),
-                Container(
-                  padding: EdgeInsets.only(left: 14),
-                  child: ListTile(
-                    leading: Image.asset('images/SingOut.png'),
-                    title: Text('Sing Out'),
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(
-                            builder: (context) => const autorization(),
-                          )
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/AddToDo'
+          );
+        },
+        backgroundColor: ColorsSet.yellow,
+        child: Icon(Icons.add),
       ),
+      drawer: NavigationDrawerWiget(),
       body: Container(
         padding: EdgeInsets.only(left: 16, right: 16, top: 32),
           child: Column(
@@ -144,7 +67,7 @@ class FirstPageIn extends ConsumerWidget {
                         ),
                       ),
                     ),
-                    Padding(
+                     Padding(
                       padding: EdgeInsets.only(left: 50),
                       child: Divider(color: ColorsSet.grey_text),
                     ),
@@ -160,11 +83,33 @@ class FirstPageIn extends ConsumerWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 36,),
+              Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'PROJECTS',
+                      style: TextStyle(color: ColorsSet.grey_text),
+                    ),
+                    Icon(Icons.keyboard_arrow_up, color:ColorsSet.grey_text),
+                  ],
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: ColorsSet.black,
+                  borderRadius: BorderRadius.all(Radius.circular(16)
+                  ),
+                ),
+                height: 210,
+              ),
             ],
           ),
         ),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 214, 10, 1),
+        backgroundColor: ColorsSet.yellow,
         actions: [
           IconButton( icon:  Icon(Icons.search),
             color: Colors.black,

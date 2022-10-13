@@ -3,6 +3,7 @@ import 'package:apptodo/Authorization/singup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../AddToDo/add_to_do.dart';
 import '../Authorization/sing_in_page.dart';
 import '../HomeScreen/homescreen.dart';
 import '../InternalArchitecture/FirstPageIN.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
           '/SingIn' : (BuildContext context) => const singInPage(),
           '/SingUp' : (BuildContext context) => const singUpPage(),
           '/StartScreen' : (BuildContext context) => const FirstPageIn(),
+          '/AddToDo': (BuildContext context) => const AddToDo(),
         }
     );
   }

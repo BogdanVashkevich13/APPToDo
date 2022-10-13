@@ -26,10 +26,7 @@ class autorization extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     ElevatedButton(onPressed: (){
-                      Navigator.push(context,
-                          MaterialPageRoute(
-                            builder: (context) => const singInPage(),
-                          )
+                      Navigator.pushNamed(context, '/SingIn'
                       );
                     },
                       child: Text('SING IN') ,
@@ -44,10 +41,7 @@ class autorization extends ConsumerWidget {
                   ],
                 ),
                 ElevatedButton(onPressed: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(
-                        builder: (context) => const singUpPage(),
-                      )
+                  Navigator.pushNamed(context, '/SingUp'
                   );
                 }, child: Text('SING UP'),
                   style: ElevatedButton.styleFrom(
@@ -79,10 +73,7 @@ class autorization extends ConsumerWidget {
                           alignment: Alignment.center,
                         ),
                         onPressed: (){
-                          Navigator.push(context,
-                              MaterialPageRoute(
-                                builder: (context) => const FirstPageIn(),
-                              )
+                          Navigator.pushNamed(context, '/StartScreen'
                           );
                         }, child: Row(
                         children: [
@@ -116,10 +107,7 @@ class autorization extends ConsumerWidget {
                           alignment: Alignment.center,
                         ),
                         onPressed: (){
-                          Navigator.push(context,
-                              MaterialPageRoute(
-                                builder: (context) => const FirstPageIn(),
-                              )
+                          Navigator.pushNamed(context, '/StartScreen'
                           );
                         },
                         child: Row(
@@ -154,10 +142,7 @@ class autorization extends ConsumerWidget {
                           alignment: Alignment.center,
                         ),
                         onPressed: (){
-                          Navigator.push(context,
-                              MaterialPageRoute(
-                                builder: (context) => const FirstPageIn(),
-                              )
+                          Navigator.pushNamed(context, '/StartScreen'
                           );
                         }, child: Row(
                         children: [
