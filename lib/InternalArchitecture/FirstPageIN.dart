@@ -54,7 +54,7 @@ class FirstPageIn extends ConsumerWidget {
                         ),
                       ),
                     ),
-                    Padding(
+                    const Padding(
                         padding: EdgeInsets.only(left: 50),
                       child: Divider(color: ColorsSet.grey_text),
                     ),
