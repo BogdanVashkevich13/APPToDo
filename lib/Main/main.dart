@@ -1,5 +1,7 @@
 import 'package:apptodo/Authorization/autorization.dart';
 import 'package:apptodo/Authorization/singup.dart';
+import 'package:apptodo/Today/today.dart';
+import 'package:apptodo/Upcomming/upcomming.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,6 +9,8 @@ import '../AddToDo/add_to_do.dart';
 import '../Authorization/sing_in_page.dart';
 import '../HomeScreen/homescreen.dart';
 import '../InternalArchitecture/FirstPageIN.dart';
+import '../calendar/calendar.dart';
+import '../inbox/inbox.dart';
 
 void main()  {
   runApp(const ProviderScope(child: MyApp()));
@@ -31,6 +35,10 @@ class MyApp extends StatelessWidget {
           '/SingUp' : (BuildContext context) => const singUpPage(),
           '/StartScreen' : (BuildContext context) => const FirstPageIn(),
           '/AddToDo': (BuildContext context) => const AddToDo(),
+          '/Calendar': (BuildContext context) => const Calendar(),
+          '/Inbox': (BuildContext context) => const Inbox(),
+          '/Today': (BuildContext context) => const Today(),
+          '/Upcoming': (BuildContext context) => const Upcoming(),
         }
     );
   }

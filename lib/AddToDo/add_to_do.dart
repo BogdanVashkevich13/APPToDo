@@ -1,11 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import '../Colors/colors.dart';
+
+DateTime now = new DateTime.now();
+DateTime date_now = new DateTime(now.year, now.month, now.day);
+
 
 class AddToDo extends ConsumerWidget {
   const AddToDo({Key? key}) : super(key: key);
+  //
+  // Future<void> _selectDate(BuildContext context) async {
+  //   final DateTime? picked = await showDatePicker(
+  //       context: context,
+  //       initialDate: selectedDate,
+  //       firstDate: DateTime(2021),
+  //       lastDate: DateTime(2100));
+  //   if (picked != null && picked != selectedDate) {
+  //     setState(() {
+  //       selectedDate = picked;
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context, ref) {
@@ -54,6 +71,11 @@ class AddToDo extends ConsumerWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 20,),
+              Row(
+                children: [
+                ],
+              ),
             ],
           ),
       ]
@@ -62,3 +84,15 @@ class AddToDo extends ConsumerWidget {
     );
   }
 }
+// GestureDetector(
+// onTap: () { Navigator.pushNamed(context, '/Calendar');
+// },
+// child: Container(
+// decoration: BoxDecoration(
+// color: ColorsSet.grey_text,
+// borderRadius: BorderRadius.circular(10),
+// ),
+// margin: EdgeInsets.only(left: 25),
+//
+// ),
+// ),

@@ -1,7 +1,5 @@
-import 'package:apptodo/Authorization/sing_in_page.dart';
-import 'package:apptodo/Authorization/singup.dart';
+
 import 'package:apptodo/Colors/colors.dart';
-import 'package:apptodo/InternalArchitecture/FirstPageIN.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

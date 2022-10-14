@@ -46,7 +46,9 @@ class FirstPageIn extends ConsumerWidget {
                 child: ListView(
                   children: [
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Inbox');
+                      },
                       leading: Image.asset('images/Inbox.png'),
                       title: Text('inbox',
                         style: TextStyle(
@@ -59,7 +61,9 @@ class FirstPageIn extends ConsumerWidget {
                       child: Divider(color: ColorsSet.grey_text),
                     ),
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Today');
+                      },
                       leading: Image.asset('images/Today.png'),
                       title: Text('today',
                         style: TextStyle(
@@ -72,7 +76,9 @@ class FirstPageIn extends ConsumerWidget {
                       child: Divider(color: ColorsSet.grey_text),
                     ),
                     ListTile(
-                      onTap: () {},
+                      onTap: (){
+                        Navigator.pushNamed(context, '/Upcoming');
+                      },
                       leading: Image.asset('images/Upcoming.png'),
                       title: Text('upcoming',
                         style: TextStyle(
