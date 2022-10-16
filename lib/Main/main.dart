@@ -2,6 +2,10 @@ import 'package:apptodo/Authorization/autorization.dart';
 import 'package:apptodo/Authorization/singup.dart';
 import 'package:apptodo/Today/today.dart';
 import 'package:apptodo/Upcomming/upcomming.dart';
+import 'package:apptodo/projects/design.dart';
+import 'package:apptodo/projects/personal.dart';
+import 'package:apptodo/projects/study.dart';
+import 'package:apptodo/projects/work.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -39,6 +43,10 @@ class MyApp extends StatelessWidget {
           '/Inbox': (BuildContext context) => const Inbox(),
           '/Today': (BuildContext context) => const Today(),
           '/Upcoming': (BuildContext context) => const Upcoming(),
+          '/Personal': (BuildContext context) => const Personal(),
+          '/Work': (BuildContext context) => const Work(),
+          '/Design': (BuildContext context) => const Design(),
+          '/Study': (BuildContext context) => const Study(),
         }
     );
   }

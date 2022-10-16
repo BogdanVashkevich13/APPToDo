@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../Colors/colors.dart';
 
-class Inbox extends ConsumerWidget {
-  const Inbox({Key? key}) : super(key: key);
+class Design extends ConsumerWidget {
+  const Design({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ref) {
@@ -12,7 +12,7 @@ class Inbox extends ConsumerWidget {
       resizeToAvoidBottomInset: true,
       backgroundColor: ColorsSet.black,
       appBar: AppBar(
-        title: Text('Inbox'),
+        title: const Text('Design'),
         centerTitle: true,
         backgroundColor: ColorsSet.yellow,
         leading: IconButton(
@@ -23,7 +23,7 @@ class Inbox extends ConsumerWidget {
             onPressed: () {
               Navigator.pushNamed(context, '/StartScreen');
             }
-            ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -44,7 +44,7 @@ class Inbox extends ConsumerWidget {
           verticalDirection: VerticalDirection.down,
           children: [
             Padding(
-                padding: EdgeInsets.only(left: 16, top: 30, bottom: 10),
+              padding: EdgeInsets.only(left: 16, top: 30, bottom: 10),
               child: Text(
                 'OVERDUE',
                 style: TextStyle(

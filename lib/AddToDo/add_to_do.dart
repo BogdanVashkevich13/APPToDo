@@ -7,22 +7,18 @@ import '../Colors/colors.dart';
 DateTime now = new DateTime.now();
 DateTime date_now = new DateTime(now.year, now.month, now.day);
 
-
 class AddToDo extends ConsumerWidget {
   const AddToDo({Key? key}) : super(key: key);
-  //
+
   // Future<void> _selectDate(BuildContext context) async {
   //   final DateTime? picked = await showDatePicker(
   //       context: context,
-  //       initialDate: selectedDate,
-  //       firstDate: DateTime(2021),
-  //       lastDate: DateTime(2100));
-  //   if (picked != null && picked != selectedDate) {
-  //     setState(() {
-  //       selectedDate = picked;
-  //     });
+  //       initialDate: date_now,
+  //       firstDate: DateTime(2015, 8),
+  //       lastDate: DateTime(2101));
   //   }
   // }
+
 
   @override
   Widget build(BuildContext context, ref) {
@@ -43,7 +39,7 @@ class AddToDo extends ConsumerWidget {
                 color: ColorsSet.white,
               ),
               Padding(
-                  padding: EdgeInsets.only( left: 80),
+                  padding: EdgeInsets.only( left: 75),
                 child: Text('Add New ToDo',
                 style: TextStyle(
                   color: ColorsSet.white,
@@ -74,6 +70,24 @@ class AddToDo extends ConsumerWidget {
               SizedBox(height: 20,),
               Row(
                 children: [
+                  GestureDetector(
+                    onTap: () async{
+                      DateTime? newDate = await showDatePicker(
+                          context: context,
+                          initialDate: date_now,
+                          firstDate: DateTime(2021),
+                          lastDate: DateTime(2100),
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: ColorsSet.grey_text,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      margin: EdgeInsets.only(left: 25),
+
+                    ),
+                  ),
                 ],
               ),
             ],

@@ -35,9 +35,9 @@ class FirstPageIn extends ConsumerWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 35,),
+              const SizedBox(height: 35,),
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                 color: ColorsSet.gray,
                   borderRadius: BorderRadius.all(Radius.circular(16)
                   ),
@@ -50,7 +50,7 @@ class FirstPageIn extends ConsumerWidget {
                         Navigator.pushNamed(context, '/Inbox');
                       },
                       leading: Image.asset('images/Inbox.png'),
-                      title: Text('inbox',
+                      title: const Text('Inbox',
                         style: TextStyle(
                           color: ColorsSet.white
                         ),
@@ -65,13 +65,13 @@ class FirstPageIn extends ConsumerWidget {
                         Navigator.pushNamed(context, '/Today');
                       },
                       leading: Image.asset('images/Today.png'),
-                      title: Text('today',
+                      title: const Text('Today',
                         style: TextStyle(
                             color: ColorsSet.white
                         ),
                       ),
                     ),
-                     Padding(
+                     const Padding(
                       padding: EdgeInsets.only(left: 50),
                       child: Divider(color: ColorsSet.grey_text),
                     ),
@@ -80,7 +80,7 @@ class FirstPageIn extends ConsumerWidget {
                         Navigator.pushNamed(context, '/Upcoming');
                       },
                       leading: Image.asset('images/Upcoming.png'),
-                      title: Text('upcoming',
+                      title: const Text('Upcoming',
                         style: TextStyle(
                             color: ColorsSet.white
                         ),
@@ -89,12 +89,12 @@ class FirstPageIn extends ConsumerWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 36,),
+              const SizedBox(height: 36),
               Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'PROJECTS',
                       style: TextStyle(color: ColorsSet.grey_text),
@@ -104,12 +104,73 @@ class FirstPageIn extends ConsumerWidget {
                 ),
               ),
               Container(
-                decoration: BoxDecoration(
-                  color: ColorsSet.black,
+                decoration: const BoxDecoration(
+                  color: ColorsSet.gray,
                   borderRadius: BorderRadius.all(Radius.circular(16)
                   ),
                 ),
-                height: 210,
+                height: 280,
+                padding: const EdgeInsets.only(bottom: 15),
+                child: ListView(
+                  children: [
+                    ListTile(
+                      onTap: () {
+                         Navigator.pushNamed(context, '/Personal');
+                      },
+                      leading: Image.asset('images/yellow circle.png'),
+                      title: const Text('Personal',
+                        style: TextStyle(
+                            color: ColorsSet.white
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 50),
+                      child: Divider(color: ColorsSet.grey_text),
+                    ),
+                    ListTile(
+                      onTap: () {
+                         Navigator.pushNamed(context, '/Work');
+                      },
+                      leading: Image.asset('images/orange circle.png'),
+                      title: const Text('Work',
+                        style: TextStyle(
+                            color: ColorsSet.white
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 50),
+                      child: Divider(color: ColorsSet.grey_text),
+                    ),
+                    ListTile(
+                      onTap: (){
+                        Navigator.pushNamed(context, '/Design');
+                      },
+                      leading: Image.asset('images/purple circle.png'),
+                      title: const Text('Desing',
+                        style: TextStyle(
+                            color: ColorsSet.white
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 50),
+                      child: Divider(color: ColorsSet.grey_text),
+                    ),
+                    ListTile(
+                      onTap: (){
+                         Navigator.pushNamed(context, '/Study');
+                      },
+                      leading: Image.asset('images/green circle.png'),
+                      title: const Text('Study',
+                        style: TextStyle(
+                            color: ColorsSet.white
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -127,4 +188,3 @@ class FirstPageIn extends ConsumerWidget {
     );
   }
 }
-
