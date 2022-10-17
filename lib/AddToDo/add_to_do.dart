@@ -6,6 +6,7 @@ import '../Colors/colors.dart';
 
 DateTime now = new DateTime.now();
 DateTime date_now = new DateTime(now.year, now.month, now.day);
+// DateTime date = new DateTime(2022, 10, 17 );
 
 class AddToDo extends ConsumerWidget {
   const AddToDo({Key? key}) : super(key: key);
@@ -67,28 +68,59 @@ class AddToDo extends ConsumerWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () async{
-                      DateTime? newDate = await showDatePicker(
-                          context: context,
-                          initialDate: date_now,
-                          firstDate: DateTime(2021),
-                          lastDate: DateTime(2100),
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: ColorsSet.grey_text,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      margin: EdgeInsets.only(left: 25),
-
-                    ),
+              SizedBox(height: 10,),
+              Padding(
+                padding: EdgeInsets.only(left: 15 ),
+                child:Container(
+                  constraints:BoxConstraints(
+                    maxHeight: 35 ,
+                    maxWidth:90 ,
                   ),
-                ],
+                  child: Row(
+                  children:[
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(5),
+                      child: Stack(
+                        children:<Widget> [
+                          Positioned.fill(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: ColorsSet.gray,
+                                ),
+                              ),
+                          ),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                                foregroundColor: ColorsSet.grey_text
+                            ),
+                            onPressed: () async{
+                              DateTime? newDate = await showDatePicker(
+                                context: context,
+                                initialDate: date_now,
+                                firstDate: DateTime(2021),
+                                lastDate: DateTime(2100),
+                              );
+                              },
+                            child: Row(
+                              children: [
+                                 Image.asset('/images.GrayWatch.png',
+                                   width: 20,
+                                   height: 20,
+                                 ),
+                                Text('No Data',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]
+                  ),
+                ),
               ),
             ],
           ),
@@ -109,4 +141,26 @@ class AddToDo extends ConsumerWidget {
 // margin: EdgeInsets.only(left: 25),
 //
 // ),
+// ),
+// Row(
+// children: [
+// GestureDetector(
+// onTap: () async{
+// DateTime? newDate = await showDatePicker(
+// context: context,
+// initialDate: date_now,
+// firstDate: DateTime(2021),
+// lastDate: DateTime(2100),
+// );
+// },
+// child: Container(
+// decoration: BoxDecoration(
+// color: ColorsSet.grey_text,
+// borderRadius: BorderRadius.circular(10),
+// ),
+// margin: EdgeInsets.only(left: 25),
+//
+// ),
+// ),
+// ],
 // ),
