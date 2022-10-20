@@ -6,19 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
-final InboxManagerProvider = StateNotifierProvider((ref) => InboxProvider());
+final ProjectsManagerProvider = StateNotifierProvider((ref) => projectsProvider());
 
-class InboxProvider extends StateNotifier<States> {
-  InboxProvider() : super(States(null, null, null, null));
+class projectsProvider extends StateNotifier<States> {
+  projectsProvider() : super(States(null, null, null, null));
 
   final ScrollController _scrollController = ScrollController();
 
   void setProject(WidgetRef ref, project, color) {
-    ref.read(DataManagerProvider.notifier).setProject(project, color);
+    ref.read(DataManagerProvider.notifier).setState(project, color);
   }
-  void showInbox(BuildContext context, WidgetRef ref) {
-  showModalBottomSheet(
-    backgroundColor: ColorsSet.gray,
+  void showProjects(BuildContext context, WidgetRef ref) {
+    showModalBottomSheet(
+      backgroundColor: ColorsSet.gray,
       context: context,
       builder: (context) =>
           Container(
@@ -31,20 +31,20 @@ class InboxProvider extends StateNotifier<States> {
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        }, 
-                        child: const Text(
-                            'Cancel',
-                          style: TextStyle(
-                            color: ColorsSet.grey_text,
-                          ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text(
+                        'Cancel',
+                        style: TextStyle(
+                          color: ColorsSet.grey_text,
                         ),
+                      ),
                     ),
                     const Padding(
-                        padding: EdgeInsets.only(left: 75),
+                      padding: EdgeInsets.only(left: 75),
                       child:  Text(
-                          'Projects',
+                        'Projects',
                         style: TextStyle(
                           color: ColorsSet.white,
                         ),
@@ -77,16 +77,16 @@ class InboxProvider extends StateNotifier<States> {
                   child: ListView(
                     children: [
                       ListTile(
-                      onTap: () {
-                        Navigator.pop(context,);
+                        onTap: () {
+                          Navigator.pop(context,);
                         },
                         leading: Image.asset('images/yellow circle.png'),
                         title: const Text('Personal',
                           style: TextStyle(
-                        color: ColorsSet.white
-                    ),
-                  ),
-                ),
+                              color: ColorsSet.white
+                          ),
+                        ),
+                      ),
                       const Padding(
                         padding: EdgeInsets.only(left: 55),
                         child: Divider(color: ColorsSet.white),
@@ -138,6 +138,6 @@ class InboxProvider extends StateNotifier<States> {
               ],
             ),
           ),
-  );
+    );
   }
 }

@@ -18,11 +18,11 @@ class AddToDo extends ConsumerWidget {
         initialDate: date_now,
         firstDate: DateTime(2015, 8),
         lastDate: DateTime(2101));
-    ref.read(DataManager.notifier).setDate(picked);
+    ref.read(DataManagerProvider.notifier).setDate(picked);
     }
 
   void setDate(WidgetRef ref, date) {
-    ref.read(DataManager.notifier).setDate(date);
+    ref.read(DataManagerProvider.notifier).setDate(date);
   }
 
   @override
@@ -79,46 +79,41 @@ class AddToDo extends ConsumerWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(5),
-                      child: Stack(
-                        children: <Widget>[
-                          Positioned.fill(
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                  color: ColorsSet.gray,
-                                ),
-                              ),
+                    GestureDetector(
+                      onTap: () => selectDate(ref, context),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: ColorsSet.gray,
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                          Image.asset(
+                            ref.watch(DataManagerProvider).date != date_now
+                                &&  ref.watch(DataManagerProvider).date != null
+                                ? 'images/Upcoming.png'
+                                : ref.watch(DataManagerProvider)?.date == date_now
+                                && ref.watch(DataManagerProvider).date != null
+                                ? 'images/Today.png'
+                                : 'images/Watch.png',
+                            width: 20,
+                            height: 20,
                           ),
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              foregroundColor: ColorsSet.grey_text,
+                            Text(
+                                ref.watch(DataManagerProvider).date != date_now
+                                    &&  ref.watch(DataManagerProvider)?.date != null
+                                    ? 'Upcoming'
+                                    : ref.watch(DataManagerProvider).date != date_now
+                                    &&  ref.watch(DataManagerProvider).date != null
+                                    ? 'Today'
+                                    : 'No Data',
+                              style: const TextStyle(
+                                color: ColorsSet.white,
+                              ),
                             ),
-                              onPressed: () => selectDate(ref, context),
-                              child: OutlinedButton.icon(
-                                  onPressed:
-                                          () => selectDate(ref, context),
-                                  icon: Image.asset(
-                                      ref.watch(DataManager).date != date_now
-                                          &&  ref.watch(DataManager).date != null
-                                          ? 'images/Upcoming.png'
-                                          : ref.watch(DataManager).date == date_now
-                                          && ref.watch(DataManager).date != null
-                                          ? 'images/Today.png'
-                                          : 'images/Watch.png',
-                                    width: 20,
-                                    height: 20,
-                                  ),
-                                  label: const Text(
-                                    'No Data',
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      color: ColorsSet.grey_text,
-                                    ),
-                                  ),
-                              ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -174,6 +169,47 @@ class AddToDo extends ConsumerWidget {
 
 
 
-
+// ClipRRect(
+// borderRadius: BorderRadius.circular(5),
+// child: Stack(
+// children: <Widget>[
+// Positioned.fill(
+// child: Container(
+// decoration: const BoxDecoration(
+// color: ColorsSet.gray,
+// ),
+// ),
+// ),
+// TextButton(
+// style: TextButton.styleFrom(
+// foregroundColor: ColorsSet.grey_text,
+// ),
+// onPressed: () => selectDate(ref, context),
+// child: OutlinedButton.icon(
+// onPressed:
+// () => selectDate(ref, context),
+// icon: Image.asset(
+// ref.watch(DataManagerProvider).date != date_now
+// &&  ref.watch(DataManagerProvider).date != null
+// ? 'images/Upcoming.png'
+// : ref.watch(DataManagerProvider)?.date == date_now
+// && ref.watch(DataManagerProvider).date != null
+// ? 'images/Today.png'
+//     : 'images/Watch.png',
+// width: 20,
+// height: 20,
+// ),
+// label: const Text(
+// 'No Data',
+// style: TextStyle(
+// fontSize: 15,
+// color: ColorsSet.grey_text,
+// ),
+// ),
+// ),
+// ),
+// ],
+// ),
+// ),
 
 
