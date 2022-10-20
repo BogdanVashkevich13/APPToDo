@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import '../Colors/colors.dart';
+import '../Providers/data_provider.dart';
 
 DateTime now = new DateTime.now();
 DateTime date_now = new DateTime(now.year, now.month, now.day);
@@ -17,9 +18,12 @@ class AddToDo extends ConsumerWidget {
         initialDate: date_now,
         firstDate: DateTime(2015, 8),
         lastDate: DateTime(2101));
+    ref.read(DataManager.notifier).setDate(picked);
     }
 
-
+  void setDate(WidgetRef ref, date) {
+    ref.read(DataManager.notifier).setDate(date);
+  }
 
   @override
   Widget build(BuildContext context, ref) {
@@ -39,7 +43,7 @@ class AddToDo extends ConsumerWidget {
                 iconSize: 28,
                 color: ColorsSet.white,
               ),
-              Padding(
+              const Padding(
                   padding: EdgeInsets.only( left: 75),
                 child: Text('Add New ToDo',
                 style: TextStyle(
@@ -51,12 +55,12 @@ class AddToDo extends ConsumerWidget {
             ],
           ),
         ),
-          SizedBox(height: 12,),
+          const SizedBox(height: 12,),
           Column(
             children: [
               Container(
-                margin: EdgeInsets.only(left: 15,right: 15,bottom: 20),
-                child: TextField(
+                margin: const EdgeInsets.only(left: 15,right: 15,bottom: 20),
+                child: const TextField(
                   cursorColor: ColorsSet.white,
                   maxLines: 13,
                   minLines: 12,
@@ -68,9 +72,9 @@ class AddToDo extends ConsumerWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Padding(
-                  padding: EdgeInsets.only(left: 15),
+                  padding: const EdgeInsets.only(left: 15),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -81,7 +85,7 @@ class AddToDo extends ConsumerWidget {
                         children: <Widget>[
                           Positioned.fill(
                               child: Container(
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: ColorsSet.gray,
                                 ),
                               ),
@@ -94,11 +98,18 @@ class AddToDo extends ConsumerWidget {
                               child: OutlinedButton.icon(
                                   onPressed:
                                           () => selectDate(ref, context),
-                                  icon: Image.asset('images/GrayWatch.png',
+                                  icon: Image.asset(
+                                      ref.watch(DataManager).date != date_now
+                                          &&  ref.watch(DataManager).date != null
+                                          ? 'images/Upcoming.png'
+                                          : ref.watch(DataManager).date == date_now
+                                          && ref.watch(DataManager).date != null
+                                          ? 'images/Today.png'
+                                          : 'images/Watch.png',
                                     width: 20,
                                     height: 20,
                                   ),
-                                  label: Text(
+                                  label: const Text(
                                     'No Data',
                                     style: TextStyle(
                                       fontSize: 15,
@@ -156,6 +167,10 @@ class AddToDo extends ConsumerWidget {
 // ],
 // ),
 
+//
+// 'images/GrayWatch.png',
+// width: 20,
+// height: 20,
 
 
 

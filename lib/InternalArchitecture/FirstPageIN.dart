@@ -26,7 +26,7 @@ class FirstPageIn extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                   padding: EdgeInsets.only(left: 20),
                 child: Text('Hello Alex!',
                   style: TextStyle(
@@ -148,7 +148,7 @@ class FirstPageIn extends ConsumerWidget {
                         Navigator.pushNamed(context, '/Design');
                       },
                       leading: Image.asset('images/purple circle.png'),
-                      title: const Text('Desing',
+                      title: const Text('Design',
                         style: TextStyle(
                             color: ColorsSet.white
                         ),
