@@ -119,6 +119,19 @@ class AddToDo extends ConsumerWidget {
                   ],
                 ),
               ),
+              Padding(
+                  padding: EdgeInsets.only(top: 20),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: const Size(360, 40),
+                    shape:RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                  ),
+                    onPressed: () {},
+                    child: const Text('Add ToDo'),
+                ),
+              ),
             ],
           ),
       ]
