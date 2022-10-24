@@ -9,6 +9,8 @@ import 'package:apptodo/projects/work.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../AddNewProject/new_project.dart';
+import '../AddNewProject/project.dart';
 import '../AddToDo/add_to_do.dart';
 import '../Authorization/sing_in_page.dart';
 import '../HomeScreen/homescreen.dart';
@@ -45,6 +47,8 @@ class MyApp extends StatelessWidget {
           '/Work': (BuildContext context) => const Work(),
           '/Design': (BuildContext context) => const Design(),
           '/Study': (BuildContext context) => const Study(),
+          '/Projects': (BuildContext context) => Projects(),
+          '/AddNewProjects': (BuildContext context) => const AddNewProjects(),
         }
     );
   }

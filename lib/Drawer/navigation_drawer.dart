@@ -63,7 +63,9 @@ class NavigationDrawerWiget extends ConsumerWidget {
                 child: ListTile(
                   leading: Image.asset('images/Folder.png'),
                   title: const Text('Projects'),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/Projects');
+                  },
                 ),
               ),
               const SizedBox( height: 10,),
