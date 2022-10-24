@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import '../Colors/colors.dart';
 import '../Providers/data_provider.dart';
+import '../Providers/projects_provider.dart';
+import '../inbox/inbox.dart';
 
 DateTime now = new DateTime.now();
 DateTime date_now = new DateTime(now.year, now.month, now.day);
@@ -18,13 +20,15 @@ class AddToDo extends ConsumerWidget {
         initialDate: date_now,
         firstDate: DateTime(2015, 8),
         lastDate: DateTime(2101));
-    ref.read(DataManagerProvider.notifier).setDate(picked);
+    ref.read(dataManagerProvider.notifier).setDate(picked);
     }
 
   void setDate(WidgetRef ref, date) {
-    ref.read(DataManagerProvider.notifier).setDate(date);
+    ref.read(dataManagerProvider.notifier).setDate(date);
   }
-
+  void showProjects(context, WidgetRef ref) {
+    ref.read(projectsManagerProvider.notifier).showProjects(context, ref);
+  }
   @override
   Widget build(BuildContext context, ref) {
     return Scaffold(
@@ -90,26 +94,59 @@ class AddToDo extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                           Image.asset(
-                            ref.watch(DataManagerProvider).date != date_now
-                                &&  ref.watch(DataManagerProvider).date != null
+                            ref.watch(dataManagerProvider).date != date_now
+                                &&  ref.watch(dataManagerProvider).date != null
                                 ? 'images/Upcoming.png'
-                                : ref.watch(DataManagerProvider)?.date == date_now
-                                && ref.watch(DataManagerProvider).date != null
+                                : ref.watch(dataManagerProvider)?.date == date_now
+                                && ref.watch(dataManagerProvider).date != null
                                 ? 'images/Today.png'
                                 : 'images/Watch.png',
                             width: 20,
                             height: 20,
                           ),
                             Text(
-                                ref.watch(DataManagerProvider).date != date_now
-                                    &&  ref.watch(DataManagerProvider)?.date != null
+                                ref.watch(dataManagerProvider).date != date_now
+                                    &&  ref.watch(dataManagerProvider)?.date != null
                                     ? 'Upcoming'
-                                    : ref.watch(DataManagerProvider).date != date_now
-                                    &&  ref.watch(DataManagerProvider).date != null
+                                    : ref.watch(dataManagerProvider).date != date_now
+                                    &&  ref.watch(dataManagerProvider).date != null
                                     ? 'Today'
                                     : 'No Data',
-                              style: const TextStyle(
-                                color: ColorsSet.white,
+                              style: TextStyle(
+                                color: ref.watch(dataManagerProvider).date !=
+                                    null
+                                    ? ColorsSet.white
+                                    : ColorsSet.grey_text,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () =>showProjects(context, ref),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: ColorsSet.gray,
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                        ),
+                        margin: EdgeInsets.only(left: 20),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.circle_rounded, size: 15,
+                              color: ref.watch(projectsManagerProvider).color
+                              ),
+                            Text(ref.watch(projectsManagerProvider).projects == null
+                                ? ' Inbox'
+                                : '${ref.watch(projectsManagerProvider).projects}',
+                              style: TextStyle(
+                                color: ref.watch(projectsManagerProvider).projects !=
+                                    null
+                                    ? ColorsSet.white
+                                    : ColorsSet.grey_text,
                               ),
                             ),
                           ],
@@ -120,7 +157,7 @@ class AddToDo extends ConsumerWidget {
                 ),
               ),
               Padding(
-                  padding: EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 20),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     fixedSize: const Size(360, 40),

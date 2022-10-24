@@ -3,10 +3,10 @@ import 'package:apptodo/Providers/states.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
-final DataManagerProvider = StateNotifierProvider((ref) => dataManager());
+final dataManagerProvider = StateNotifierProvider<DataManager, States>((ref) => DataManager());
 
-class dataManager extends StateNotifier<States> {
-  dataManager() : super(States(null, null, null, null));
+class DataManager extends StateNotifier<States> {
+  DataManager() : super(States(null, null, null, null));
 
   void setDate(DateTime? date) {
     state =  States( date,  state.text, state.color, state.projects);

@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
-final ProjectsManagerProvider = StateNotifierProvider((ref) => projectsProvider());
+final projectsManagerProvider = StateNotifierProvider<ProjectsProvider, States>((ref) => ProjectsProvider());
 
-class projectsProvider extends StateNotifier<States> {
-  projectsProvider() : super(States(null, null, null, null));
+class ProjectsProvider extends StateNotifier<States> {
+  ProjectsProvider() : super(States(null, null, null, null));
 
   final ScrollController _scrollController = ScrollController();
 
   void setProject(WidgetRef ref, project, color) {
-    ref.read(DataManagerProvider.notifier).setState(project, color);
+    ref.read(dataManagerProvider.notifier).setState(project, color);
   }
   void showProjects(BuildContext context, WidgetRef ref) {
     showModalBottomSheet(
