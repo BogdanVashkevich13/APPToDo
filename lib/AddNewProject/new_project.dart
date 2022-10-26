@@ -16,6 +16,8 @@ class AddNewProjects extends ConsumerWidget {
     ref.watch(addProjectsProvider.notifier).colorProjects(color, icon);
   }
 
+  static const IconData check_circle_sharp = IconData(0xe856, fontFamily: 'MaterialIcons');
+  static const IconData circle = IconData(0xe163, fontFamily: 'MaterialIcons');
 
   @override
   Widget build(BuildContext context, ref) {
@@ -93,12 +95,145 @@ class AddNewProjects extends ConsumerWidget {
              children: [
                IconButton(
                    onPressed: () {
-                     colorProjects(ref, ColorsSet.circle_yellow, const IconData(), );
+                     colorProjects(ref, ColorsSet.circle_yellow,
+                         const IconData(0xe163, fontFamily: 'MaterialIcons'), );
                    },
-                   icon:
+                   icon: Icon(
+                   ref.watch(addProjectsProvider).color == ColorsSet.circle_yellow
+                       ? const IconData(0xe856, fontFamily: 'MaterialIcons')
+                       : const IconData(0xe163, fontFamily: 'MaterialIcons'),
+                     color: ColorsSet.circle_yellow,
+                     size: 25,
+                   ),
+                 splashRadius: 0.1,
+               ),
+               IconButton(
+                 onPressed: () {
+                   colorProjects(ref, ColorsSet.circle_green,
+                     const IconData(0xe163, fontFamily: 'MaterialIcons'), );
+                 },
+                 icon: Icon(
+                   ref.watch(addProjectsProvider).color == ColorsSet.circle_yellow
+                       ? const IconData(0xe856, fontFamily: 'MaterialIcons')
+                       : const IconData(0xe163, fontFamily: 'MaterialIcons'),
+                   color: ColorsSet.circle_green,
+                   size: 25,
+                 ),
+                 splashRadius: 0.1,
+               ),
+               IconButton(
+                 onPressed: () {
+                   colorProjects(ref, ColorsSet.circle_red,
+                     const IconData(0xe163, fontFamily: 'MaterialIcons'), );
+                 },
+                 icon: Icon(
+                   ref.watch(addProjectsProvider).color == ColorsSet.circle_yellow
+                       ? const IconData(0xe856, fontFamily: 'MaterialIcons')
+                       : const IconData(0xe163, fontFamily: 'MaterialIcons'),
+                   color: ColorsSet.circle_red,
+                   size: 25,
+                 ),
+                 splashRadius: 0.1,
+               ),
+               IconButton(
+                 onPressed: () {
+                   colorProjects(ref, ColorsSet.circle_orange,
+                     const IconData(0xe163, fontFamily: 'MaterialIcons'), );
+                 },
+                 icon: Icon(
+                   ref.watch(addProjectsProvider).color == ColorsSet.circle_yellow
+                       ? const IconData(0xe856, fontFamily: 'MaterialIcons')
+                       : const IconData(0xe163, fontFamily: 'MaterialIcons'),
+                   color: ColorsSet.circle_orange,
+                   size: 25,
+                 ),
+                 splashRadius: 0.1,
+               ),
+               IconButton(
+                 onPressed: () {
+                   colorProjects(ref, ColorsSet.circle_purple,
+                     const IconData(0xe163, fontFamily: 'MaterialIcons'), );
+                 },
+                 icon: Icon(
+                   ref.watch(addProjectsProvider).color == ColorsSet.circle_yellow
+                       ? const IconData(0xe856, fontFamily: 'MaterialIcons')
+                       : const IconData(0xe163, fontFamily: 'MaterialIcons'),
+                   color: ColorsSet.circle_purple,
+                   size: 25,
+                 ),
+                 splashRadius: 0.1,
+               ),
+               IconButton(
+                 onPressed: () {
+                   colorProjects(ref, ColorsSet.circle_cian,
+                     const IconData(0xe163, fontFamily: 'MaterialIcons'), );
+                 },
+                 icon: Icon(
+                   ref.watch(addProjectsProvider).color == ColorsSet.circle_yellow
+                       ? const IconData(0xe856, fontFamily: 'MaterialIcons')
+                       : const IconData(0xe163, fontFamily: 'MaterialIcons'),
+                   color: ColorsSet.circle_cian,
+                   size: 25,
+                 ),
+                 splashRadius: 0.1,
+               ),
+               IconButton(
+                 onPressed: () {
+                   colorProjects(ref, ColorsSet.circle_blue,
+                     const IconData(0xe163, fontFamily: 'MaterialIcons'), );
+                 },
+                 icon: Icon(
+                   ref.watch(addProjectsProvider).color == ColorsSet.circle_yellow
+                       ? const IconData(0xe856, fontFamily: 'MaterialIcons')
+                       : const IconData(0xe163, fontFamily: 'MaterialIcons'),
+                   color: ColorsSet.circle_blue,
+                   size: 25,
+                 ),
+                 splashRadius: 0.1,
+               ),
+               IconButton(
+                 onPressed: () {
+                   colorProjects(ref, ColorsSet.circle_dark_blue,
+                     const IconData(0xe163, fontFamily: 'MaterialIcons'), );
+                 },
+                 icon: Icon(
+                   ref.watch(addProjectsProvider).color == ColorsSet.circle_yellow
+                       ? const IconData(0xe856, fontFamily: 'MaterialIcons')
+                       : const IconData(0xe163, fontFamily: 'MaterialIcons'),
+                   color: ColorsSet.circle_dark_blue,
+                   size: 25,
+                 ),
+                 splashRadius: 0.1,
+               ),
+               IconButton(
+                 onPressed: () {
+                   colorProjects(ref, ColorsSet.circle_pink,
+                     const IconData(0xe163, fontFamily: 'MaterialIcons'), );
+                 },
+                 icon: Icon(
+                   ref.watch(addProjectsProvider).color == ColorsSet.circle_yellow
+                       ? const IconData(0xe856, fontFamily: 'MaterialIcons')
+                       : const IconData(0xe163, fontFamily: 'MaterialIcons'),
+                   color: ColorsSet.circle_pink,
+                   size: 25,
+                 ),
+                 splashRadius: 0.1,
                ),
              ],
            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(360, 40),
+                  shape:RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+                onPressed: () {},
+                child: const Text('Add Project'),
+              ),
+            ),
           ],
         ),
     ),
